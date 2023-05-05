@@ -21,13 +21,12 @@ public class HotelManagementRepository {
     public String addHotel(Hotel hotel) {
 
         // You need to add an hotel to the database
+        String key = hotel.getHotelName();
 
         // 1. incase the hotelName is null or the hotel Object is null return an empty a FAILURE
-        if (hotel.equals(null) || hotel.getHotelName().equals(null)) {
+        if (hotel.equals(null) || key == null) {
             return "FAILURE";
         }
-
-        String key = hotel.getHotelName();
 
         // 2. Incase somebody is trying to add the duplicate hotelName return FAILURE
         if (hotelDatabase.containsKey(key)) {
